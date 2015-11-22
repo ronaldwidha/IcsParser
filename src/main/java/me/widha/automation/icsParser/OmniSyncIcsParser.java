@@ -1,4 +1,4 @@
-package me.widha.automation.omnisyncdb;
+package me.widha.automation.icsParser;
 
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
@@ -14,14 +14,14 @@ import java.io.IOException;
 public class OmniSyncIcsParser {
 
     private static final int MAX_CAP = 999999;
-    private final FireForgetParseBufferResponder responder;
+    private final NonBlockingParseBufferResponder responder;
 
     public OmniSyncIcsParser() {
 
-        this.responder = new SimpleResponder();
+        this.responder = new SimpleBufferResponder();
     }
 
-    public OmniSyncIcsParser(FireForgetParseBufferResponder responder) {
+    public OmniSyncIcsParser(NonBlockingParseBufferResponder responder) {
 
         this.responder = responder;
     }
@@ -72,19 +72,19 @@ public class OmniSyncIcsParser {
         DateTimeFormatter fmt = ISODateTimeFormat.basicDateTimeNoMillis();
 
         if (line.startsWith("DTSTART:")) {
-            buffer.getOfItem().setStart(fmt.parseDateTime(line.substring(8)));
+            buffer.getVEvent().setStart(fmt.parseDateTime(line.substring(8)));
         } else if (line.startsWith("DTEND:")) {
-            buffer.getOfItem().setEnd(fmt.parseDateTime(line.substring(6)));
+            buffer.getVEvent().setEnd(fmt.parseDateTime(line.substring(6)));
         } else if (line.startsWith("DTSTAMP:")) {
-            buffer.getOfItem().setTimestamp(fmt.parseDateTime(line.substring(8)));
+            buffer.getVEvent().setTimestamp(fmt.parseDateTime(line.substring(8)));
         } else if (line.startsWith("SUMMARY:Due: ")) {
-            buffer.getOfItem().setTitle(line.substring(13));
+            buffer.getVEvent().setTitle(line.substring(13));
         } else if (line.startsWith("DESCRIPTION:omnifocus://")) {
-            buffer.getOfItem().setAppUri(line.substring(12));
+            buffer.getVEvent().setAppUri(line.substring(12));
         } else if (line.startsWith("DESCRIPTION:")) {
             //ignored
         } else if (line.startsWith("UID:")) {
-            buffer.getOfItem().setUID(line.substring(4));
+            buffer.getVEvent().setUID(line.substring(4));
         } else {
             // ignored
         }

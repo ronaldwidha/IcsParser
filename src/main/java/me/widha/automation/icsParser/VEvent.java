@@ -1,4 +1,4 @@
-package me.widha.automation.omnisyncdb;
+package me.widha.automation.icsParser;
 
 
 import org.joda.time.DateTime;
@@ -6,7 +6,7 @@ import org.joda.time.DateTime;
 /**
  * Created by rsunarno on 11/21/15.
  */
-public class OFItem {
+public class VEvent {
 
     private DateTime start;
     private String title;

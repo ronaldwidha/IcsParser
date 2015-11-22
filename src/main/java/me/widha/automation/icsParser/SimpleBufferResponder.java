@@ -1,9 +1,9 @@
-package me.widha.automation.omnisyncdb;
+package me.widha.automation.icsParser;
 
 /**
  * Created by rsunarno on 11/21/15.
  */
-public class SimpleResponder implements FireForgetParseBufferResponder {
+public class SimpleBufferResponder implements NonBlockingParseBufferResponder {
 
     /**
      * preparation work
@@ -24,7 +24,7 @@ public class SimpleResponder implements FireForgetParseBufferResponder {
         // make sure do something quick or asynchronous here
         // don't block the loop!
 
-        System.out.println(buffer.getOfItem().getUID() + " " + buffer.getOfItem().getTitle());
+        System.out.println(buffer.getVEvent().getUID() + " " + buffer.getVEvent().getTitle());
 
         //bw.write(String.valueOf(ID)+";"+"\""+line+"\""+";1"+";1"+";"+System.currentTimeMillis()+";"+System.currentTimeMillis()+";0"+";0"+";3");
         //bw.newLine();

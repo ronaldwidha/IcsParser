@@ -1,4 +1,4 @@
-package me.widha.automation.omnisyncdb;
+package me.widha.automation.icsParser;
 
 /**
  * Created by rsunarno on 11/21/15.

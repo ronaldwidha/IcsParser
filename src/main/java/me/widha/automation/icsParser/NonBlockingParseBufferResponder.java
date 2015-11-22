@@ -1,9 +1,9 @@
-package me.widha.automation.omnisyncdb;
+package me.widha.automation.icsParser;
 
 /**
  * Created by rsunarno on 11/21/15.
  */
-public interface FireForgetParseBufferResponder {
+public interface NonBlockingParseBufferResponder {
 
     public void prepare();
 

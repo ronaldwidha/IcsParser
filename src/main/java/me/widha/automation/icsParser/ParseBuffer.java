@@ -1,4 +1,4 @@
-package me.widha.automation.omnisyncdb;
+package me.widha.automation.icsParser;
 
 /**
  * Created by rsunarno on 11/21/15.
@@ -6,26 +6,26 @@ package me.widha.automation.omnisyncdb;
 public class ParseBuffer {
 
     public ParseBuffer() {
-        this.ofItem = new OFItem();
+        this.VEvent = new VEvent();
         this.isReadyToFlush = false;
     }
 
-    public OFItem getOfItem() {
+    public VEvent getVEvent() {
 
-        return ofItem;
+        return VEvent;
     }
 
-    public void setOfItem(OFItem ofItem) {
+    public void setVEvent(VEvent VEvent) {
 
-        this.ofItem = ofItem;
+        this.VEvent = VEvent;
     }
 
-    private OFItem ofItem;
+    private VEvent VEvent;
     private boolean isReadyToFlush;
 
-    public ParseBuffer(OFItem ofItem) {
+    public ParseBuffer(VEvent VEvent) {
 
-        this.ofItem = ofItem;
+        this.VEvent = VEvent;
         this.isReadyToFlush = false;
     }
 
