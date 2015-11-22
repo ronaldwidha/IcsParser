@@ -19,6 +19,6 @@ public class OmniSyncIcsParserTest {
 
     @org.junit.Test
     public void testGo() throws Exception {
-        SUT.go("/Users/rsunarno/Desktop/test.ics");
+        SUT.go("/User/x/Desktop/test.ics");
     }
 }
